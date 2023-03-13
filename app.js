@@ -3,14 +3,29 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var hbs = require('hbs');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var indexRouter = require('./app_server/routes/index');
+var usersRouter = require('./app_server/routes/users');
+var travelRouter= require('./app_server/routes/travel');
+var about = require('./app_server/routes/about');
+var contact = require('./app_server/routes/contact');
+var meals = require('./app_server/routes/meals');
+var rooms = require('./app_server/routes/rooms');
+var users = require('./app_server/routes/users');
+var news = require('./app_server/routes/news');
+
+
+//const { hasSubscribers } = require('diagnostics_channel');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname,'app_server', 'views'));
+
+// register handlebars partials (hppts:www/npmjs.com/package/hbs)
+
+hbs.registerPartials(path.join(__dirname, 'app_server','views/partials'));
 app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
@@ -20,7 +35,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/index',indexRouter);
 app.use('/users', usersRouter);
+app.use('/travel', travelRouter);
+app.use('/meals', meals);
+app.use('/news', news);
+app.use('/rooms', rooms);
+app.use('/contact', contact);
+app.use('/about', about);
+app.use('/users', users);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
