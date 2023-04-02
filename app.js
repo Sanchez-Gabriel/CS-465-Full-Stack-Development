@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs');
 
-require('./app_server/models/db');
+require('./app_api/models/db');
 
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
@@ -16,6 +16,7 @@ var meals = require('./app_server/routes/meals');
 var rooms = require('./app_server/routes/rooms');
 var users = require('./app_server/routes/users');
 var news = require('./app_server/routes/news');
+const apiRouter= require('./app_api/routes/index');
 
 
 //const { hasSubscribers } = require('diagnostics_channel');
@@ -46,6 +47,7 @@ app.use('/rooms', rooms);
 app.use('/contact', contact);
 app.use('/about', about);
 app.use('/users', users);
+app.use('/api',apiRouter);
 
 
 // catch 404 and forward to error handler
