@@ -4,8 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require('hbs');
+const cors=require("cors");
 
 require('./app_api/models/db');
+
 
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
@@ -20,6 +22,13 @@ const apiRouter= require('./app_api/routes/index');
 
 
 //const { hasSubscribers } = require('diagnostics_channel');
+
+const corsOptions ={
+      origin: "http://localhost:4200",
+      methods:["GET", "POST", "PUT", "DELETE"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+
+};
 
 var app = express();
 
@@ -47,7 +56,8 @@ app.use('/rooms', rooms);
 app.use('/contact', contact);
 app.use('/about', about);
 app.use('/users', users);
-app.use('/api',apiRouter);
+app.use("/api",cors(corsOptions),apiRouter);
+
 
 
 // catch 404 and forward to error handler

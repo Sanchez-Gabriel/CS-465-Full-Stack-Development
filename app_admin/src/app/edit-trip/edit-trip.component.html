@@ -1,0 +1,87 @@
+<h2>Edit Trip</h2>
+
+<form [formGroup]="editForm" (ngSubmit)="updateTrip()">
+<div class="row mb-3">
+    <label for="txtCode" class="col-sm-2 col-form-label">Code</label>
+     <div class="col-sm-4">
+        <input type="text" formControlName="code" name="txtCode" id="txtCode" class="form-control" require/>
+        <div *ngIf="submitted && f['code'].errors?.['required']" class="text-danger">Oops</div>
+        </div>  
+    </div>
+
+
+
+    <div class="row mb-3">
+        <label for="txtCode" class="col-sm-2 col-form-label">Name</label>
+         <div class="col-sm-4">
+            <input type="text" formControlName="name" name="txtName" id="txtName" class="form-control" require/>
+            <div *ngIf="submitted && f['name'].errors?.['required']" class="text-danger">Oops</div>
+            </div>  
+        </div>
+
+
+        <div class="row mb-3">
+            <label for="txtCode" class="col-sm-2 col-form-label">Length</label>
+             <div class="col-sm-4">
+                <input type="text" formControlName="length" name="txtLength" id="txtLength" class="form-control" require/>
+                <div *ngIf="submitted && f['length'].errors?.['required']" class="text-danger">Oops</div>
+                </div>  
+            </div>
+
+
+
+            <div class="row mb-3">
+                <label for="txtStart" class="col-sm-2 col-form-label">Start</label>
+                 <div class="col-sm-4">
+                    <input type="date" [value]="f['start'].value |date:'yyyy-MM-DD'" formControlName="start" name="txtStart"  id="txtStart" class="form-control" require />
+                    <div *ngIf="submitted && f['code'].errors?.['required']" class="text-danger">Oops</div>
+                    </div>  
+                </div>
+
+                <div class="row mb-3">
+                    <label for="txtResort" class="col-sm-2 col-form-label">Resort</label>
+                     <div class="col-sm-4">
+                        <input type="text" formControlName="resort" name="txtResort" id="txtResort" class="form-control" require/>
+                        <div *ngIf="submitted && f['name'].errors?.['required']" class="text-danger">Oops</div>
+                        </div>  
+                    </div>
+
+
+
+
+                <div class="row mb-3">
+                    <label for="txtPerPerson" class="col-sm-2 col-form-label">Per Person</label>
+                     <div class="col-sm-4">
+                        <input type="text" formControlName="perperson" name="txtPerPerson"  id="txtPerPerson" class="form-control" require/>
+                        <div *ngIf="submitted && f['Per Person'].errors?.['required']" class="text-danger">Oops</div>
+                        </div>  
+                    </div>
+
+
+
+
+                    <div class="row mb-3">
+                        <label for="txtimg" class="col-sm-2 col-form-label">Image</label>
+                         <div class="col-sm-4">
+                            <input type="text" formControlName="image" name="ImgCode"id="ImgCode" class="form-control" require/>
+                            <div *ngIf="submitted && f['image'].errors?.['required']" class="text-danger">Oops</div>
+                            </div>  
+                        </div>
+    
+
+
+
+
+    <div class="row mb-3">
+        <label for="txtDescription" class="col-sm-2 col-form-label">Description</label>
+       <div class="col-sm-4">
+        <textarea formControlName="description" name="txtDescription" id="txtDescription" class="form-control" rows="3"></textarea>
+        <div *ngIf="submitted && f['description'].errors?.['required']" class="text-danger">Oops</div>
+       </div> 
+    </div>
+<div class="row mb-3">
+<div class="col-sm-6 text-end">
+    <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>
