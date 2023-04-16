@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -6,8 +8,9 @@ var logger = require('morgan');
 var hbs = require('hbs');
 const cors=require("cors");
 
-require('./app_api/models/db');
 
+require('./app_api/models/db');
+require('./app_api/config/passport');
 
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
@@ -24,11 +27,11 @@ const apiRouter= require('./app_api/routes/index');
 //const { hasSubscribers } = require('diagnostics_channel');
 
 const corsOptions ={
-      origin: "http://localhost:4200",
-      methods:["GET", "POST", "PUT", "DELETE"],
-      allowedHeaders: ["Content-Type", "Authorization"],
+      origin: 'http://localhost:4200',
+     methods:['GET','POST','PUT','DELETE'],
+      allowedHeaders: ['Origin','X-Requested-With', 'Content-type','Accept','Authorization'],
 
-};
+}
 
 var app = express();
 

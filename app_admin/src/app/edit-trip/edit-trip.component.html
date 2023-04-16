@@ -33,7 +33,7 @@
             <div class="row mb-3">
                 <label for="txtStart" class="col-sm-2 col-form-label">Start</label>
                  <div class="col-sm-4">
-                    <input type="date" [value]="f['start'].value |date:'yyyy-MM-DD'" formControlName="start" name="txtStart"  id="txtStart" class="form-control" require />
+                    <input type="date" [value]="f['start'].value |date:'yyyy-MM-dd'" formControlName="start" name="txtStart"  id="txtStart" class="form-control" require/>
                     <div *ngIf="submitted && f['code'].errors?.['required']" class="text-danger">Oops</div>
                     </div>  
                 </div>
@@ -49,13 +49,13 @@
 
 
 
-                <div class="row mb-3">
-                    <label for="txtPerPerson" class="col-sm-2 col-form-label">Per Person</label>
-                     <div class="col-sm-4">
-                        <input type="text" formControlName="perperson" name="txtPerPerson"  id="txtPerPerson" class="form-control" require/>
-                        <div *ngIf="submitted && f['Per Person'].errors?.['required']" class="text-danger">Oops</div>
-                        </div>  
-                    </div>
+                    <div class="row mb-3">
+                        <label for="txtperPerson" class="col-sm-2 col-form-label">Per Person</label>
+                         <div class="col-sm-4">
+                            <input type="text" formControlName="perPerson" name="perPerson" id="perPerson" class="form-control" require/>
+                            <div *ngIf="submitted && f['perPerson'].errors?.['required']" class="text-danger">Oops</div>
+                            </div>  
+                        </div>
 
 
 

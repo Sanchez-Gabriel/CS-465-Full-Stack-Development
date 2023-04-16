@@ -5,10 +5,15 @@ const conn_uri = `mongodb://${host}/travlr`;
 const {seed} = require('./seed'); // Import seed.js
 
 
-require('./Trips'); // Register models
+
+// Register models
+require('./Trips'); 
+require('./user');
+
 mongoose.connection.on('connected', () => console.log('CONNECTED!'));
 mongoose.connection.on('error', err => console.log(err));
 mongoose.connection.on('disconnected', ()=> console.log('DISCONNECTED!'));
+
 
 mongoose.set('strictQuery',false);
 

@@ -10,12 +10,17 @@
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
     "express": "~4.16.1",
+    "express-jwt": "^8.4.1",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.21",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "seedgoose": "^2.0.2"
   }
 }
